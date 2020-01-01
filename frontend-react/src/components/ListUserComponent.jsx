@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import DataService from '../service/DataService'
-
+import {Table} from 'react-bootstrap'
 class ListUserComponent extends Component{
 
     constructor(props){
@@ -10,6 +10,7 @@ class ListUserComponent extends Component{
             message:null
         }
         this.refreshUsers = this.refreshUsers.bind(this);
+        this.addUserClick= this.addUserClick.bind(this);
         
     }
 
@@ -26,12 +27,17 @@ class ListUserComponent extends Component{
         });
     }
 
+    addUserClick(){
+        
+        this.props.history.push('/addUser');
+    }
     render(){
         return(
             <div className="container">
                 <h3>All User</h3>
                 <div className="container">
-                    <table className="table">
+              
+                    <Table striped bordered hover   size="sm" className="Table" >
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -54,7 +60,10 @@ class ListUserComponent extends Component{
                             
                         </tbody>
 
-                    </table>
+                    </Table>
+                </div>
+                <div className="continer">
+                    <button name="add" type="submit" className="btn btn-secondary" onClick={this.addUserClick}>Add</button>
                 </div>
             </div>
         );

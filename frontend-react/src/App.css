@@ -38,3 +38,12 @@
     transform: rotate(360deg);
   }
 }
+
+.Table {
+  
+  overflow: auto;
+  display: block;
+  table-layout: auto;
+  height: 400px;
+  max-width: max-content;
+  }
